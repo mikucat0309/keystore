@@ -43,6 +43,7 @@
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
+  <project path="vendor/lineage" name="LineageOS/android_vendor_lineage" />
 
   <project path="system/security" name="LineageOS/android_system_security" groups="pdk" />
   <project path="frameworks/hardware/interfaces" name="platform/frameworks/hardware/interfaces" groups="pdk,sysui-studio" remote="aosp" />
