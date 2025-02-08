@@ -1360,4 +1360,6 @@
   <project path="trusty/vendor/google/aosp" name="trusty/vendor/google/aosp" groups="trusty" remote="aosp">
     <copyfile src="lk_inc.mk" dest="lk_inc.mk" />
   </project>
+
+  <project path="vendor/lineage" name="LineageOS/android_vendor_lineage" />
 </manifest>
