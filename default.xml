@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com"
+           review="android-review.googlesource.com"
+           revision="refs/tags/android-15.0.0_r10" />
+
+  <superproject name="platform/superproject" remote="aosp" revision="android-15.0.0_r10" />
+  <contactinfo bugurl="go/repo-bug" />
+
+  <project path="system/security" name="platform/system/security" remote="aosp" />
+</manifest>
