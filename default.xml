@@ -1338,9 +1338,9 @@
   <!-- <project path="test/dittosuite" name="platform/test/dittosuite" groups="pdk" />
   <project path="test/robolectric-extensions" name="platform/test/robolectric-extensions"  groups="pdk-cw-fs,pdk-fs,sysui-studio" />
   <project path="test/mlts/benchmark" name="platform/test/mlts/benchmark" groups="pdk" />
-  <project path="test/mlts/models" name="platform/test/mlts/models" groups="pdk" />
+  <project path="test/mlts/models" name="platform/test/mlts/models" groups="pdk" /> -->
   <project path="test/app_compat/csuite" name="platform/test/app_compat/csuite" groups="pdk" />
-  <project path="test/cts-root" name="platform/test/cts-root" />
+  <!-- <project path="test/cts-root" name="platform/test/cts-root" />
   <project path="test/mts" name="platform/test/mts" />
   <project path="test/suite_harness" name="platform/test/suite_harness" groups="cts,pdk-cw-fs,pdk-fs" />
   <project path="test/vts" name="platform/test/vts" groups="vts,pdk" />
