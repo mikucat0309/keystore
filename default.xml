@@ -43,6 +43,7 @@
   <project path="external/go-cmp" name="platform/external/go-cmp" groups="pdk" />
   <project path="kernel/configs" name="kernel/configs" groups="vts,pdk" />
   <project path="external/spdx-tools" name="platform/external/spdx-tools" groups="pdk" />
+  <project path="system/sepolicy" name="platform/system/sepolicy" groups="pdk" />
 
   <project path="external/cronet" name="platform/external/cronet" groups="pdk" />
   <project path="external/libchrome" name="platform/external/libchrome" groups="pdk" />
