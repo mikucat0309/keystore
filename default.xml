@@ -44,6 +44,8 @@
   <project path="kernel/configs" name="kernel/configs" groups="vts,pdk" />
   <project path="external/spdx-tools" name="platform/external/spdx-tools" groups="pdk" />
   <project path="system/sepolicy" name="platform/system/sepolicy" groups="pdk" />
+  <project path="system/tools/aidl" name="platform/system/tools/aidl" groups="pdk" />
+  <project path="system/tools/hidl" name="platform/system/tools/hidl" groups="pdk" />
 
   <project path="external/cronet" name="platform/external/cronet" groups="pdk" />
   <project path="external/libchrome" name="platform/external/libchrome" groups="pdk" />
