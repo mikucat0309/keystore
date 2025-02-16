@@ -56,6 +56,7 @@
   <project path="external/libchrome" name="platform/external/libchrome" groups="pdk" />
   <project path="external/libevent" name="platform/external/libevent" groups="pdk" />
   <project path="external/protobuf" name="platform/external/protobuf" groups="pdk,sysui-studio" />
+  <project path="frameworks/base" name="platform/frameworks/base" groups="pdk-cw-fs,pdk-fs,sysui-studio" />
   <project path="frameworks/native" name="platform/frameworks/native" groups="pdk" />
   <project path="hardware/interfaces" name="platform/hardware/interfaces" groups="pdk,sysui-studio" />
   <project path="hardware/libhardware" name="platform/hardware/libhardware" groups="pdk" />
