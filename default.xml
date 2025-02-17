@@ -70,4 +70,5 @@
   <project path="system/security" name="platform/system/security" groups="pdk" />
 
   <project path="device/generic/goldfish" name="device/generic/goldfish" groups="pdk" />
+  <project path="device/generic/goldfish-opengl" name="device/generic/goldfish-opengl" groups="pdk" />
 </manifest>
