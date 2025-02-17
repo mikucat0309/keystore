@@ -68,4 +68,6 @@
   <project path="system/libbase" name="platform/system/libbase" groups="pdk" />
   <project path="system/logging" name="platform/system/logging" groups="pdk" />
   <project path="system/security" name="platform/system/security" groups="pdk" />
+
+  <project path="device/generic/goldfish" name="device/generic/goldfish" groups="pdk" />
 </manifest>
