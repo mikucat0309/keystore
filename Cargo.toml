@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "aidlgen",
+    "aidl/keymint",
+    "aidl/keystore2",
+    "aidl/securelock",
+    "keystore",
+]
+resolver = "2"

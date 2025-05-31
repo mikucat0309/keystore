@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          target: aarch64-linux-android
+
+      - name: Patch android-binder-ndk
+        run: sed -i '/rustc-cfg/s/android_ndk/android_vndk/' aosp/frameworks/native/libs/binder/rust/build.rs
+
+      - name: Export runtime environment variables
+        run: |
+          cat <<EOF >>$GITHUB_ENV
+          ANDROID_HOME=$ANDROID_HOME
+          ANDROID_NDK_HOME=$ANDROID_NDK_HOME
+          PATH=$PATH
+          EOF
+
+      - name: Clippy
+        env:
+          BINDGEN_EXTRA_CLANG_ARGS: "--std=c++17 -DANDROID_PLATFORM -I../../ndk/include_platform"
+          CARGO_BUILD_TARGET: aarch64-linux-android
+          CARGO_TERM_COLOR: always
+          PATH: "${{ env.ANDROID_HOME }}/build-tools/36.0.0:${{ env.PATH }}"
+        run: |
+          cargo clippy -p aidlgen -- --no-deps
+          cargo clippy -p securelock-aidl -- --no-deps
+          cargo clippy -p keymint-aidl -- --no-deps
+          cargo clippy -p keystore2-aidl -- --no-deps
+          cargo clippy -p keystore -- --no-deps
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [aarch64]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          target: ${{ matrix.arch }}-linux-android
+
+      - name: Patch android-binder-ndk
+        run: sed -i '/rustc-cfg/s/android_ndk/android_vndk/' aosp/frameworks/native/libs/binder/rust/build.rs
+
+      - name: Export runtime environment variables
+        run: |
+          cat <<EOF >>$GITHUB_ENV
+          ANDROID_HOME=$ANDROID_HOME
+          ANDROID_NDK_HOME=$ANDROID_NDK_HOME
+          PATH=$PATH
+          EOF
+
+      - name: Build
+        env:
+          BINDGEN_EXTRA_CLANG_ARGS: "--std=c++17 -DANDROID_PLATFORM -I../../ndk/include_platform"
+          CARGO_BUILD_TARGET: ${{ matrix.arch }}-linux-android
+          CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER: "${{ env.ANDROID_NDK_HOME }}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android31-clang"
+          CARGO_TARGET_X86_64_LINUX_ANDROID_LINKER: "${{ env.ANDROID_NDK_HOME }}/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android31-clang"
+          CARGO_TERM_COLOR: always
+          PATH: "${{ env.ANDROID_HOME }}/build-tools/36.0.0:${{ env.PATH }}"
+        run: cargo build
