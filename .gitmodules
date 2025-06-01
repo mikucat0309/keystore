@@ -1,0 +1,16 @@
+[submodule "aosp/frameworks/native"]
+	path = aosp/frameworks/native
+	url = https://android.googlesource.com/platform/frameworks/native
+	branch = android13-qpr3-release
+[submodule "aosp/system/hardware/interfaces"]
+	path = aosp/system/hardware/interfaces
+	url = https://android.googlesource.com/platform/system/hardware/interfaces
+	branch = android13-qpr3-release
+[submodule "aosp/hardware/interfaces"]
+	path = aosp/hardware/interfaces
+	url = https://android.googlesource.com/platform/hardware/interfaces
+	branch = android13-qpr3-release
+[submodule "aosp/system/tools/aidl"]
+	path = aosp/system/tools/aidl
+	url = https://android.googlesource.com/platform/system/tools/aidl
+	branch = android13-qpr3-release

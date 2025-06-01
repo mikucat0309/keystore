@@ -1,0 +1,17 @@
+[package]
+name = "keymint-aidl"
+version = "3.0.0"
+edition = "2024"
+
+[dependencies]
+async-trait = "0.1.88"
+android_hardware_security_secureclock = { package = "securelock-aidl", version = "1.0.0", path = "../securelock" }
+binder = { package = "android-binder", version = "0.1", path = "../../aosp/frameworks/native/libs/binder/rust" }
+
+[build-dependencies]
+aidlgen = { package = "aidlgen", version = "0.1", path = "../../aidlgen" }
+glob = "0.3.2"
+
+[lints.rust.unexpected_cfgs]
+level = "warn"
+check-cfg = ["cfg(android_vendor)", "cfg(android_ndk)", "cfg(android_vndk)", "cfg(trusty)"]

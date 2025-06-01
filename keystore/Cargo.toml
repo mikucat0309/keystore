@@ -1,0 +1,19 @@
+[package]
+name = "keystore"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+android_system_keystore2 = { package = "keystore2-aidl", version = "4.0.0", path = "../aidl/keystore2" }
+android_hardware_security_keymint = { package = "keymint-aidl", version = "3.0.0", path = "../aidl/keymint" }
+anyhow = "1.0.98"
+base64 = "0.22.1"
+binder = { package = "android-binder", version = "0.1", path = "../aosp/frameworks/native/libs/binder/rust" }
+clap = { version = "4.5.38", features = ["derive"] }
+x509-cert = "0.2.5"
+rsa = "=0.10.0-rc.0"
+rand = "0.9.1"
+sha1 = "=0.11.0-rc.0"
+sha2 = "=0.11.0-rc.0"
+digest = "=0.11.0-rc.0"
+md-5 = "=0.11.0-rc.0"
