@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mikucat <git@mikucat.me>
+Date: Mon, 17 Sep 2001 00:00:00 +0000
+Subject: [PATCH] fix toolchain path for macOS
+
+---
+ libs/binder/rust/sys/build.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libs/binder/rust/sys/build.rs b/libs/binder/rust/sys/build.rs
+index 4b188a7ca0..68130f4828 100644
+--- a/libs/binder/rust/sys/build.rs
++++ b/libs/binder/rust/sys/build.rs
+@@ -20,7 +20,7 @@ use std::path::PathBuf;
+ 
+ fn main() {
+     let ndk_home = PathBuf::from(env::var("ANDROID_NDK_HOME").unwrap());
+-    let toolchain = ndk_home.join("toolchains/llvm/prebuilt/linux-x86_64/");
++    let toolchain = ndk_home.join("toolchains/llvm/prebuilt/darwin-x86_64/");
+     let sysroot = toolchain.join("sysroot");
+     let bindings = bindgen::Builder::default()
+         .clang_arg(format!("--sysroot={}", sysroot.display()))
+-- 
+2.49.0
+

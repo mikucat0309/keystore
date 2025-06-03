@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-sed -i '/rustc-cfg/s/android_ndk/android_vndk/' aosp/frameworks/native/libs/binder/rust/build.rs
+patch="$(pwd)/patch"
+cd aosp/frameworks/native
+
+git apply "$patch/0001-generate-stub-binder_ndk.patch"
 
 if [[ $OSTYPE = darwin* ]]; then
-  sed -i "/llvm/s/[a-z]*-x86_64/darwin-x86_64/" aosp/frameworks/native/libs/binder/rust/sys/build.rs
+  git apply "$patch/0002-fix-toolchain-path-for-macOS.patch"
 fi
