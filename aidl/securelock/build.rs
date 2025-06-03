@@ -33,6 +33,7 @@ fn main() -> std::io::Result<()> {
         .unwrap()
         .map(|x| x.unwrap())
         .for_each(|x| println!("cargo::rerun-if-changed={}", x.to_str().unwrap()));
+    println!("cargo::rerun-if-changed=src/generated.rs");
     println!("cargo::rustc-cfg=android_vndk");
     Ok(())
 }
